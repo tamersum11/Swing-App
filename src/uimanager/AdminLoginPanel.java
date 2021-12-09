@@ -15,20 +15,20 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
-public class LoginPanel extends JPanel implements ActionListener, IPanelManager, ILoginPanel {
-    private JPanel loginPanel;
+public class AdminLoginPanel extends JPanel implements ActionListener, ILoginPanel, IPanelManager {
+    private JPanel adminlLoginPanel;
 
-    private JTextField userField;
+    private JTextField adminField;
     private JTextField passwordField;
-    private JLabel userIcon;
-    private JLabel userLabel;
+    private JLabel adminIcon;
+    private JLabel adminLabel;
     private JLabel passwordLabel;
     private JButton loginButton;
     
-    public LoginPanel() {
-        loginPanel = new JPanel();
-        loginPanel.setPreferredSize(new Dimension(400, 300));
-        loginPanel.setLayout(new GridLayout(4, 2, 0, 0));
+    public AdminLoginPanel() {
+        adminlLoginPanel = new JPanel();
+        adminlLoginPanel.setPreferredSize(new Dimension(400, 300));
+        adminlLoginPanel.setLayout(new GridLayout(4, 2, 0, 0));
 
         setComponents();
         setLayoutComponents();
@@ -37,29 +37,29 @@ public class LoginPanel extends JPanel implements ActionListener, IPanelManager,
     @Override
     public void setIconFrame() {
         Border border = BorderFactory.createLineBorder(new Color(278079));
-        ImageIcon icon = new ImageIcon("../BankApp/icons/turquoise-icons/user.svg");
-        userIcon = new JLabel("User Login Panel");
-        userIcon.setForeground(new Color(278079));
-        userIcon.setBackground(Color.white);
-        userIcon.setFont(new Font("Century Gothic", Font.BOLD, 20));
-        userIcon.setIcon(icon);
-        userIcon.setHorizontalTextPosition(JLabel.CENTER);
-        userIcon.setVerticalTextPosition(JLabel.BOTTOM);
-        userIcon.setBorder(border);
-        userIcon.setVerticalAlignment(JLabel.CENTER);
-        userIcon.setHorizontalAlignment(JLabel.CENTER);
+        ImageIcon icon = new ImageIcon("../BankApp/icons/turquoise-icons/gitlab.svg");
+        adminIcon = new JLabel("Admin Login Panel");
+        adminIcon.setForeground(new Color(278079));
+        adminIcon.setBackground(Color.white);
+        adminIcon.setFont(new Font("Century Gothic", Font.BOLD, 20));
+        adminIcon.setIcon(icon);
+        adminIcon.setHorizontalTextPosition(JLabel.CENTER);
+        adminIcon.setVerticalTextPosition(JLabel.BOTTOM);
+        adminIcon.setBorder(border);
+        adminIcon.setVerticalAlignment(JLabel.CENTER);
+        adminIcon.setHorizontalAlignment(JLabel.CENTER);
     }
 
     @Override
     public void setNameFrame() {
-        userLabel = new JLabel("User Name or Email: ");
-        userLabel.setForeground(new Color(278079));
-        userLabel.setFont(new Font("Century Gothic", Font.BOLD, 20));
+        adminLabel = new JLabel("Admin Name: ");
+        adminLabel.setForeground(new Color(278079));
+        adminLabel.setFont(new Font("Century Gothic", Font.BOLD, 20));
 
-        userField = new JTextField();
-        userField.setFont(new Font("Century Gothic", Font.BOLD, 20));
-        userField.setForeground(new Color(278079));
-        userField.setBackground(Color.white);    
+        adminField = new JTextField();
+        adminField.setFont(new Font("Century Gothic", Font.BOLD, 20));
+        adminField.setForeground(new Color(278079));
+        adminField.setBackground(Color.white);    
     }
 
     @Override
@@ -90,19 +90,19 @@ public class LoginPanel extends JPanel implements ActionListener, IPanelManager,
 
     @Override
     public JPanel getPanel() {
-        return this.loginPanel;
+        return this.adminlLoginPanel;
     }
 
     @Override
     public void setLayoutComponents() {
-        loginPanel.add(new JLabel());
-        loginPanel.add(userIcon);
-        loginPanel.add(userLabel);
-        loginPanel.add(userField);
-        loginPanel.add(passwordLabel);
-        loginPanel.add(passwordField);
-        loginPanel.add(new JLabel());
-        loginPanel.add(loginButton);  
+        adminlLoginPanel.add(new JLabel());
+        adminlLoginPanel.add(adminIcon);
+        adminlLoginPanel.add(adminLabel);
+        adminlLoginPanel.add(adminField);
+        adminlLoginPanel.add(passwordLabel);
+        adminlLoginPanel.add(passwordField);
+        adminlLoginPanel.add(new JLabel());
+        adminlLoginPanel.add(loginButton);  
     }
 
     @Override

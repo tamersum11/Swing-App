@@ -1,44 +1,44 @@
 package uimanager;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.FlowLayout;
+import java.awt.BorderLayout;
 
-import javax.swing.JButton;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 
-public class DefaultMainUpPanel extends JPanel implements ActionListener, IPanelManager {
+public class DefaultMainUpPanel extends JPanel implements IPanelManager {
     private JPanel mainUpPanel;
-    private JButton buttonLogin;
-    private JButton buttonRegister;
+
+    private JTabbedPane mainUpTabbedPane;
 
     public DefaultMainUpPanel() {
         mainUpPanel = new JPanel();
         mainUpPanel.setBackground(new Color(278079));
-        mainUpPanel.setPreferredSize(new Dimension(100, 50));
-        mainUpPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+        //mainUpPanel.setPreferredSize(new Dimension(100, 50));
+        mainUpPanel.setLayout(new BorderLayout(0, 0));
 
         setComponents();
         setLayoutComponents();
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        MainWindow window = MainWindow.getWindow();
+    private void setMainUpTabbedPane() {
+        mainUpTabbedPane = new JTabbedPane();
+        mainUpTabbedPane.setForeground(new Color(278079));
+        mainUpTabbedPane.setFont(new Font("Century Gothic", Font.BOLD, 20));
 
-        if(e.getSource() == buttonLogin) {
-            LoginPanel login = new LoginPanel();
-            window.setMainCenterPanel(login.getPanel());
-        }
-        if(e.getSource() == buttonRegister) {
-            RegisterPanel register = new RegisterPanel();
-            window.setMainCenterPanel(register.getPanel());
-        }
+        ImageIcon iconAdmin = new ImageIcon("../BankApp/icons/turquoise-icons/gitlab.svg");
+        ImageIcon iconLogin = new ImageIcon("../BankApp/icons/turquoise-icons/user.svg");
+        ImageIcon iconRegister = new ImageIcon("../BankApp/icons/turquoise-icons/user-plus.svg");
 
-        window.show();
+        AdminLoginPanel admin = new AdminLoginPanel();
+        LoginPanel login = new LoginPanel();
+        RegisterPanel register = new RegisterPanel();
+
+        mainUpTabbedPane.addTab("Admin", iconAdmin, admin.getPanel());
+        mainUpTabbedPane.addTab("Login", iconLogin, login.getPanel());
+        mainUpTabbedPane.addTab("Register", iconRegister, register.getPanel());
     }
 
     @Override
@@ -48,23 +48,12 @@ public class DefaultMainUpPanel extends JPanel implements ActionListener, IPanel
 
     @Override
     public void setLayoutComponents() {
-        mainUpPanel.add(buttonLogin);
-        mainUpPanel.add(buttonRegister);
+        mainUpPanel.add(mainUpTabbedPane);
     }
 
     @Override
     public void setComponents() {
-        buttonLogin = new JButton("Login");
-        buttonLogin.setFont(new Font("Century Gothic", Font.BOLD, 20));
-        buttonLogin.setBackground(Color.white);
-        buttonLogin.setForeground(new Color(278079));
-        buttonLogin.addActionListener(this);
-
-        buttonRegister = new JButton("Register");
-        buttonRegister.setFont(new Font("Century Gothic", Font.BOLD, 20));
-        buttonRegister.setBackground(Color.white);
-        buttonRegister.setForeground(new Color(278079));
-        buttonRegister.addActionListener(this);
+        setMainUpTabbedPane();
     }
     
 }
