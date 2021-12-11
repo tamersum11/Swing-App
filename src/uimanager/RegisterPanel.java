@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
@@ -28,8 +29,8 @@ public class RegisterPanel extends JPanel implements ActionListener, IPanelManag
     private JLabel userCommitPasswordLabel;
     private JTextField userNameField;
     private JTextField userEmailField;
-    private JTextField passwordField;
-    private JTextField passworCommitdField;
+    private JPasswordField passwordField;
+    private JPasswordField passworCommitdField;
     private JButton registerButton;
     private JComboBox<String> jobComboBox;
 
@@ -95,6 +96,7 @@ public class RegisterPanel extends JPanel implements ActionListener, IPanelManag
         jobComboBox.addItem("White-Collar");
         jobComboBox.addItem("Blue-Collar");
         jobComboBox.addItem("Student");
+        jobComboBox.addItem("Prostitute");
     }
 
     @Override
@@ -103,7 +105,7 @@ public class RegisterPanel extends JPanel implements ActionListener, IPanelManag
         userPasswordLabel.setForeground(new Color(278079));
         userPasswordLabel.setFont(new Font("Century Gothic", Font.BOLD, 20));
 
-        passwordField = new JTextField();
+        passwordField = new JPasswordField();
         passwordField.setFont(new Font("Century Gothic", Font.BOLD, 20));
         passwordField.setForeground(new Color(278079));
         passwordField.setBackground(Color.white);   
@@ -114,7 +116,7 @@ public class RegisterPanel extends JPanel implements ActionListener, IPanelManag
         userCommitPasswordLabel.setForeground(new Color(278079));
         userCommitPasswordLabel.setFont(new Font("Century Gothic", Font.BOLD, 20));
 
-        passworCommitdField = new JTextField();
+        passworCommitdField = new JPasswordField();
         passworCommitdField.setFont(new Font("Century Gothic", Font.BOLD, 20));
         passworCommitdField.setForeground(new Color(278079));
         passworCommitdField.setBackground(Color.white);  

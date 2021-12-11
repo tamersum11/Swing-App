@@ -36,9 +36,9 @@ public class DefaultMainUpPanel extends JPanel implements IPanelManager {
         LoginPanel login = new LoginPanel();
         RegisterPanel register = new RegisterPanel();
 
-        mainUpTabbedPane.addTab("Admin", iconAdmin, admin.getPanel());
         mainUpTabbedPane.addTab("Login", iconLogin, login.getPanel());
         mainUpTabbedPane.addTab("Register", iconRegister, register.getPanel());
+        mainUpTabbedPane.addTab("Admin", iconAdmin, admin.getPanel());
     }
 
     @Override

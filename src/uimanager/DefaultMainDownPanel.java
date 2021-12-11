@@ -34,7 +34,7 @@ public class DefaultMainDownPanel extends JPanel implements IPanelManager{
     @Override
     public void setComponents() {
         label = new JLabel("Desktop Bank Application v1.0");
-        label.setFont(new Font("Century Gothic", Font.BOLD, 20));
+        label.setFont(new Font("Century Gothic", Font.BOLD, 14));
         label.setForeground(new Color(278079));
         label.setHorizontalAlignment(JLabel.CENTER);
         label.setVerticalAlignment(JLabel.CENTER);

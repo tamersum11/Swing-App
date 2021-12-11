@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
@@ -19,7 +20,7 @@ public class AdminLoginPanel extends JPanel implements ActionListener, ILoginPan
     private JPanel adminlLoginPanel;
 
     private JTextField adminField;
-    private JTextField passwordField;
+    private JPasswordField passwordField;
     private JLabel adminIcon;
     private JLabel adminLabel;
     private JLabel passwordLabel;
@@ -68,7 +69,7 @@ public class AdminLoginPanel extends JPanel implements ActionListener, ILoginPan
         passwordLabel.setForeground(new Color(278079));
         passwordLabel.setFont(new Font("Century Gothic", Font.BOLD, 20));
 
-        passwordField = new JTextField();
+        passwordField = new JPasswordField(10);
         passwordField.setFont(new Font("Century Gothic", Font.BOLD, 20));
         passwordField.setForeground(new Color(278079));
         passwordField.setBackground(Color.white);  

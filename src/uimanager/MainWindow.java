@@ -19,15 +19,15 @@ public final class MainWindow extends JFrame {
         frameIcon = new ImageIcon("../BankApp/icons/turquoise-icons/trello.svg");
 
         mainFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        mainFrame.setSize(600, 400);
+        mainFrame.setSize(500, 350);
         mainFrame.setTitle("Desktop BankApp");
+        mainFrame.setLayout(new BorderLayout(0, 0));
 
         DefaultMainUpPanel panelUp = new DefaultMainUpPanel();
         DefaultMainDownPanel panelDown = new DefaultMainDownPanel();
 
         setMainUpPanel(panelUp.getPanel());
         setMainDownPanel(panelDown.getPanel());
-        setLayoutBorderDimentions(50, 150);
     }
 
     public void setMainUpPanel(JPanel panelUp) {
@@ -36,10 +36,6 @@ public final class MainWindow extends JFrame {
 
     public void setMainDownPanel(JPanel panelDown) {
         mainDownPanel = panelDown;
-    }
-
-    public void setLayoutBorderDimentions(int width, int height) {
-        mainFrame.setLayout(new BorderLayout(width, width));
     }
 
     public static MainWindow getWindow() {
