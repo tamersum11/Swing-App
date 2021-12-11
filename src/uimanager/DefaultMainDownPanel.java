@@ -14,7 +14,7 @@ public class DefaultMainDownPanel extends JPanel implements IPanelManager{
     
     public DefaultMainDownPanel() {
         mainDownPanel = new JPanel();
-        mainDownPanel.setPreferredSize(new Dimension(100, 50));
+        mainDownPanel.setPreferredSize(new Dimension(100, 30));
         mainDownPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 
         setComponents();

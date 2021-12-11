@@ -26,16 +26,8 @@ public final class MainWindow extends JFrame {
         DefaultMainUpPanel panelUp = new DefaultMainUpPanel();
         DefaultMainDownPanel panelDown = new DefaultMainDownPanel();
 
-        setMainUpPanel(panelUp.getPanel());
-        setMainDownPanel(panelDown.getPanel());
-    }
-
-    public void setMainUpPanel(JPanel panelUp) {
-        mainUpPanel = panelUp;
-    }
-
-    public void setMainDownPanel(JPanel panelDown) {
-        mainDownPanel = panelDown;
+        mainUpPanel = panelUp.getPanel();
+        mainDownPanel = panelDown.getPanel();
     }
 
     public static MainWindow getWindow() {
@@ -51,5 +43,9 @@ public final class MainWindow extends JFrame {
         mainFrame.setIconImage(frameIcon.getImage());
         mainFrame.add(mainUpPanel, BorderLayout.CENTER);
         mainFrame.add(mainDownPanel, BorderLayout.SOUTH);
+    }
+
+    public void exit() {
+        mainFrame.setVisible(false);
     }
 }
