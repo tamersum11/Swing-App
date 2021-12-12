@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class DBConnector {
     private static DBConnector dbConnector;
 
-    private String jdbcUrl = "jdbc:sqlite:../BankApp/BankAppDB.db";
+    private String jdbcUrl = "jdbc:sqlite:../Swing-App/BankAppDB.db";
     private Connection connection;
     private Statement statement;
 

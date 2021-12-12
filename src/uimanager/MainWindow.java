@@ -16,7 +16,7 @@ public final class MainWindow extends JFrame {
 
     private MainWindow() {
         mainFrame = new JFrame();
-        frameIcon = new ImageIcon("../BankApp/icons/turquoise-icons/trello.svg");
+        frameIcon = new ImageIcon("../Swing-App/icons/turquoise-icons/trello.svg");
 
         mainFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         mainFrame.setSize(500, 350);

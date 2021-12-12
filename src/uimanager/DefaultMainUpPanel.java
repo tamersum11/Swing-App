@@ -28,9 +28,9 @@ public class DefaultMainUpPanel extends JPanel implements IPanelManager {
         mainUpTabbedPane.setForeground(new Color(278079));
         mainUpTabbedPane.setFont(new Font("Century Gothic", Font.BOLD, 20));
 
-        ImageIcon iconAdmin = new ImageIcon("../BankApp/icons/turquoise-icons/gitlab.svg");
-        ImageIcon iconLogin = new ImageIcon("../BankApp/icons/turquoise-icons/user.svg");
-        ImageIcon iconRegister = new ImageIcon("../BankApp/icons/turquoise-icons/user-plus.svg");
+        ImageIcon iconAdmin = new ImageIcon("../Swing-App/icons/turquoise-icons/gitlab.svg");
+        ImageIcon iconLogin = new ImageIcon("../Swing-App/icons/turquoise-icons/user.svg");
+        ImageIcon iconRegister = new ImageIcon("../Swing-App/icons/turquoise-icons/user-plus.svg");
 
         AdminLoginPanel admin = new AdminLoginPanel();
         LoginPanel login = new LoginPanel();

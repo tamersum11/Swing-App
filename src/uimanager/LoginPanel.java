@@ -38,7 +38,7 @@ public class LoginPanel extends JPanel implements ActionListener, IPanelManager,
     @Override
     public void setIconFrame() {
         Border border = BorderFactory.createLineBorder(new Color(278079));
-        ImageIcon icon = new ImageIcon("../BankApp/icons/turquoise-icons/user.svg");
+        ImageIcon icon = new ImageIcon("../Swing-App/icons/turquoise-icons/user.svg");
         userIcon = new JLabel("User Login Panel");
         userIcon.setForeground(new Color(278079));
         userIcon.setBackground(Color.white);

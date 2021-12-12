@@ -38,7 +38,7 @@ public class AdminLoginPanel extends JPanel implements ActionListener, ILoginPan
     @Override
     public void setIconFrame() {
         Border border = BorderFactory.createLineBorder(new Color(278079));
-        ImageIcon icon = new ImageIcon("../BankApp/icons/turquoise-icons/gitlab.svg");
+        ImageIcon icon = new ImageIcon("../Swing-App/icons/turquoise-icons/gitlab.svg");
         adminIcon = new JLabel("Admin Login Panel");
         adminIcon.setForeground(new Color(278079));
         adminIcon.setBackground(Color.white);

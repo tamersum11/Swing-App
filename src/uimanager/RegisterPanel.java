@@ -46,7 +46,7 @@ public class RegisterPanel extends JPanel implements ActionListener, IPanelManag
     @Override
     public void setIconFrame() {
         Border border = BorderFactory.createLineBorder(new Color(278079));
-        ImageIcon icon = new ImageIcon("../BankApp/icons/turquoise-icons/user-plus.svg");
+        ImageIcon icon = new ImageIcon("../Swing-App/icons/turquoise-icons/user-plus.svg");
         userIcon = new JLabel("User Register Panel");
         userIcon.setForeground(new Color(278079));
         userIcon.setBackground(Color.white);
