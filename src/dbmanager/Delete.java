@@ -35,6 +35,11 @@ public class Delete implements IDBManager {
     }
 
     @Override
+    public void setQueryBool(String queryBool) {
+        queryBool = null;
+    }
+
+    @Override
     public void setQuery() {
         query = "DELETE FROM " + table + " WHERE " + column + "= '" + item + "'";
     }

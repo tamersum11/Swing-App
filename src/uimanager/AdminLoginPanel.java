@@ -16,6 +16,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
+import appmanager.AdminLoginManager;
+
 public class AdminLoginPanel extends JPanel implements ActionListener, ILoginPanel, IPanelManager {
     private JPanel adminlLoginPanel;
 
@@ -86,7 +88,8 @@ public class AdminLoginPanel extends JPanel implements ActionListener, ILoginPan
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        AdminLoginManager manager = new AdminLoginManager(adminField.getText(), (passwordField.getPassword() == null) ? "" : (String)passwordField.getText());
+        manager.setLoginManager();
     }
 
     @Override

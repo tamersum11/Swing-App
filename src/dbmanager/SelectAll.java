@@ -34,6 +34,11 @@ public class SelectAll implements IDBManager{
     }
 
     @Override
+    public void setQueryBool(String queryBool) {
+        queryBool = null;
+    }
+
+    @Override
     public void setQuery() {
         query = "SELECT * FROM " + table;
     }

@@ -14,10 +14,6 @@ public class SelectWhere implements IDBManager{
         dbconn = DBConnector.getInstance();
     }
 
-    public void setQueryBool(String queryBool) {
-        this.queryBool = queryBool;
-    }
-
     private void setQueryOR() {
         query = "SELECT * FROM " + table + " WHERE ";
         for(String item : queryMap.keySet()){
@@ -40,11 +36,6 @@ public class SelectWhere implements IDBManager{
     }
 
     @Override
-    public void setQueryMap(HashMap<String, String> queryMap) {
-        this.queryMap = queryMap;
-    }
-
-    @Override
     public void setColumn(String column) {
         column = null;
     }
@@ -52,6 +43,16 @@ public class SelectWhere implements IDBManager{
     @Override
     public void setItem(String item) {
         item = null;
+    }
+
+    @Override
+    public void setQueryMap(HashMap<String, String> queryMap) {
+        this.queryMap = queryMap;
+    }
+
+    @Override
+    public void setQueryBool(String queryBool) {
+        this.queryBool = queryBool;
     }
    
     @Override
@@ -61,7 +62,7 @@ public class SelectWhere implements IDBManager{
         }else if(queryBool.equalsIgnoreCase("AND")){
             setQueryAND();
         } else {
-            setQueryOR();
+            setQueryAND();
         }
     }
 

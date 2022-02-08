@@ -34,6 +34,11 @@ public class Update implements IDBManager {
     public void setQueryMap(HashMap<String, String> queryMap) {
         this.queryMap = queryMap;
     }
+
+    @Override
+    public void setQueryBool(String queryBool) {
+        queryBool = null;
+    }
     
     @Override
     public void setQuery() {

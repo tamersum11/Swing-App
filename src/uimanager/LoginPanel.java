@@ -16,6 +16,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
+import appmanager.UserLoginManager;
+
 public class LoginPanel extends JPanel implements ActionListener, IPanelManager, ILoginPanel {
     private JPanel loginPanel;
 
@@ -53,7 +55,7 @@ public class LoginPanel extends JPanel implements ActionListener, IPanelManager,
 
     @Override
     public void setNameFrame() {
-        userLabel = new JLabel("User Name or Email: ");
+        userLabel = new JLabel("Email: ");
         userLabel.setForeground(new Color(278079));
         userLabel.setFont(new Font("Century Gothic", Font.BOLD, 20));
 
@@ -86,7 +88,8 @@ public class LoginPanel extends JPanel implements ActionListener, IPanelManager,
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        UserLoginManager manager = new UserLoginManager(userField.getText(), (passwordField.getPassword() == null) ? "" : (String)passwordField.getText());
+        manager.setLoginManager();
     }
 
     @Override

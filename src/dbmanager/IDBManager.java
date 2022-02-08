@@ -8,6 +8,7 @@ public interface IDBManager {
     void setColumn(String column);
     void setItem(String item);
     void setQueryMap(HashMap<String, String> queryMap);
+    void setQueryBool(String queryBool);
     void setQuery();
     ResultSet getResult();
 }

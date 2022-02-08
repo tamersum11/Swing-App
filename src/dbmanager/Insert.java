@@ -34,6 +34,11 @@ public class Insert implements IDBManager {
     }
 
     @Override
+    public void setQueryBool(String queryBool) {
+        queryBool = null;
+    }
+
+    @Override
     public void setQuery() {
         query = "INSERT INTO " + table + " (";
         for(String column : queryMap.keySet()){

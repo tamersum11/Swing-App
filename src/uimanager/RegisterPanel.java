@@ -4,19 +4,27 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
-//import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+
+import appmanager.UserRegisterManager;
+import appmanager.UserRegisterManager.UserBuilder;
+import dbmanager.IDBManager;
+import dbmanager.QueryFactory;
 
 public class RegisterPanel extends JPanel implements ActionListener, IPanelManager, ILoginPanel {
     private JPanel registerPanel;
@@ -33,12 +41,14 @@ public class RegisterPanel extends JPanel implements ActionListener, IPanelManag
     private JPasswordField passworCommitdField;
     private JButton registerButton;
     private JComboBox<String> jobComboBox;
+    private JFrame messageBox;
 
     public RegisterPanel() {
         registerPanel = new JPanel();
         registerPanel.setPreferredSize(new Dimension(400, 400));
         registerPanel.setLayout(new GridLayout(8, 2, 0, 0));
 
+        messageBox = new JFrame();
         setComponents();
         setLayoutComponents();
     }
@@ -82,6 +92,20 @@ public class RegisterPanel extends JPanel implements ActionListener, IPanelManag
         userEmailField.setBackground(Color.white);  
     }
 
+    private void setJobComboBoxItems() {
+        IDBManager selectJobs = QueryFactory.getQuery("selectall");
+        selectJobs.setTable("Jobs");
+        selectJobs.setQuery();
+        ResultSet jobs = selectJobs.getResult();
+        try {
+            while(jobs.next()){
+                jobComboBox.addItem(jobs.getString("Job"));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(messageBox, e.getMessage() + ". Jobs Couldn't Load From Database!!!", "Database Error", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+
     public void setJobFrame() {
         userJobLabel = new JLabel("Job: ");
         userJobLabel.setForeground(new Color(278079));
@@ -90,13 +114,8 @@ public class RegisterPanel extends JPanel implements ActionListener, IPanelManag
         jobComboBox = new JComboBox<String>();
         jobComboBox.setForeground(new Color(278079));
         jobComboBox.setFont(new Font("Century Gothic", Font.BOLD, 20));
-        //Set Items from the DB later
-        jobComboBox.addItem("Officer");
-        jobComboBox.addItem("Trader");
-        jobComboBox.addItem("White-Collar");
-        jobComboBox.addItem("Blue-Collar");
-        jobComboBox.addItem("Student");
-        jobComboBox.addItem("Prostitute");
+        
+        setJobComboBoxItems();
     }
 
     @Override
@@ -167,6 +186,15 @@ public class RegisterPanel extends JPanel implements ActionListener, IPanelManag
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        UserRegisterManager registerManager = new UserBuilder(userEmailField.getText(), (passwordField.getPassword() == null) ? "" : (String)passwordField.getText(), 
+                                                             (passworCommitdField.getPassword() == null) ? "" : (String)passworCommitdField.getText())
+                                                             .name(userNameField.getText())
+                                                             .job(jobComboBox.getSelectedItem().toString())
+                                                             .build();
+        if(registerManager != null) {
+            registerManager.register();
+        } else {
+            JOptionPane.showMessageDialog(messageBox, "Failed to register!!!", "Registration Error", JOptionPane.WARNING_MESSAGE);
+        }
     }
 }
