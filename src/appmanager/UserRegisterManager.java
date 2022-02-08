@@ -11,11 +11,10 @@ import dbmanager.IDBManager;
 import dbmanager.QueryFactory;
 
 public class UserRegisterManager {
-    //All final attributes
-    private final String name; // required
-    private final String email; // required
-    private final String job; // required
-    private final String password; // required
+    private final String name;
+    private final String email;
+    private final String job;
+    private final String password;
 
     private HashMap<String, String> insertQueryMap;
     private JFrame messageBox;
@@ -83,7 +82,6 @@ public class UserRegisterManager {
             return this;
         }
 
-        //Return the finally consrcuted User object
         public UserRegisterManager build() {
             if(validateUser() && checkPassword()) {
                 UserRegisterManager user =  new UserRegisterManager(this);
